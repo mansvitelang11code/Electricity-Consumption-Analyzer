@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WattWise | Energy Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+    </script>
+</head>
+
+<body class="analyzer-page">
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      WattWise
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="insights.html">Insights</a>
+    </nav>
+  </header>
+
+  <main class="analyzer-container">
+
+    <section class="analyzer-hero">
+      <span class="eyebrow">ENERGY ANALYZER</span>
+
+      <h1>
+        Know exactly where your
+        <span>energy goes.</span>
+      </h1>
+
+      <p>
+        Add your appliance usage below and WattWise will estimate your
+        monthly electricity consumption and cost.
+      </p>
+
+      <div class="rate-box">
+        ⚡ Electricity Rate
+        <strong>₹8 / kWh</strong>
+      </div>
+    </section>
+
+    <!-- INPUT CARD -->
+    <section class="usage-card">
+
+      <div class="input-group">
+        <label for="appliance">Appliance</label>
+
+        <select id="appliance">
+          <option value="1.5">Air Conditioner</option>
+          <option value="0.2">Ceiling Fan</option>
+          <option value="0.1">LED Bulb</option>
+          <option value="0.15">Television</option>
+          <option value="0.2">Refrigerator</option>
+          <option value="1">Washing Machine</option>
+          <option value="0.8">Microwave</option>
+          <option value="1.5">Water Heater</option>
+          <option value="0.75">Computer</option>
+          <option value="0.3">Iron</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="hours">Hours per day</label>
+        <input
+          type="number"
+          id="hours"
+          value="5"
+          min="0"
+          max="24"
+          step="0.5"
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="days">Days per month</label>
+        <input
+          type="number"
+          id="days"
+          value="30"
+          min="1"
+          max="31"
+        >
+      </div>
+
+      <button id="calculateBtn" type="button" class="calculate-btn">
+    Calculate →
+       </button>
+
+    </section>
+
+    <!-- ================= RESULT SECTION ================= -->
+
+<section class="results-section">
+
+    <div class="section-heading">
+        <span class="eyebrow">⚡ YOUR RESULT</span>
+        <h2>Monthly Consumption</h2>
+        <p>
+            Here's your estimated electricity consumption,
+            monthly cost and daily usage.
+        </p>
+    </div>
+
+    <div class="results-grid">
+
+        <!-- ENERGY USED -->
+        <div class="result-card">
+            <div class="result-icon">⚡</div>
+
+            <div class="result-content">
+                <span class="result-label">Energy Used</span>
+
+                <strong id="resultKwh">0 kWh</strong>
+
+                <small>kWh / month</small>
+            </div>
+        </div>
+
+
+        <!-- ESTIMATED COST -->
+        <div class="result-card">
+            <div class="result-icon">₹</div>
+
+            <div class="result-content">
+                <span class="result-label">Estimated Cost</span>
+
+                <strong id="resultCost">₹0</strong>
+
+                <small>per month</small>
+            </div>
+        </div>
+
+
+        <!-- DAILY USAGE -->
+        <div class="result-card">
+            <div class="result-icon">◷</div>
+
+            <div class="result-content">
+                <span class="result-label">Daily Usage</span>
+
+                <strong id="resultDaily">0.0 kWh</strong>
+
+                <small>kWh / day</small>
+            </div>
+        </div>
+
+
+        <!-- POTENTIAL SAVING -->
+        <div class="result-card">
+            <div class="result-icon">💡</div>
+
+            <div class="result-content">
+                <span class="result-label">Potential Saving</span>
+
+                <strong id="resultSaving">₹0</strong>
+
+                <small>estimated monthly saving</small>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- SMART INSIGHT -->
+
+    <div class="insight-card">
+
+        <div class="insight-icon">💡</div>
+
+        <div>
+            <h3>WattWise Insight</h3>
+
+            <p id="insightText">
+                Enter your appliance usage to see
+                your personalized energy insight.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+  </main>
+
+  <footer>
+    <p>© 2026 WattWise • Smart Energy Intelligence</p>
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

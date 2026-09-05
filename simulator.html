@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WattWise - Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+    </script>
+</head>
+
+<body class="simulator-page">
+
+<header class="navbar">
+    <div class="logo">⚡ WattWise</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="simulator.html">Simulator</a>
+        <a href="insights.html">Insights</a>
+    </nav>
+</header>
+
+<main class="simulator-container">
+
+    <section class="page-heading">
+        <span class="eyebrow">⚡ ENERGY SIMULATOR</span>
+        <h1>What If You Reduce Your Usage?</h1>
+        <p>
+            Simulate your electricity usage and see how much energy
+            and money you could save.
+        </p>
+    </section>
+
+    <section class="usage-card">
+
+        <div class="input-group">
+            <label for="currentUsage">Current Monthly Usage (kWh)</label>
+            <input
+                type="number"
+                id="currentUsage"
+                value="225"
+                min="0"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="reduction">Reduction (%)</label>
+            <input
+                type="number"
+                id="reduction"
+                value="20"
+                min="0"
+                max="100"
+            >
+        </div>
+
+        <button class="calculate-btn" onclick="simulateSaving()">
+            Simulate →
+        </button>
+
+    </section>
+
+    <section class="results-grid">
+
+        <article class="result-card">
+            <div class="result-icon">⚡</div>
+
+            <div class="result-content">
+                <span class="result-label">ENERGY SAVED</span>
+                <strong id="energySaved">0 kWh</strong>
+                <small>per month</small>
+            </div>
+        </article>
+
+        <article class="result-card">
+            <div class="result-icon">₹</div>
+
+            <div class="result-content">
+                <span class="result-label">MONEY SAVED</span>
+                <strong id="moneySaved">₹0</strong>
+                <small>per month</small>
+            </div>
+        </article>
+
+        <article class="result-card">
+            <div class="result-icon">📉</div>
+
+            <div class="result-content">
+                <span class="result-label">NEW USAGE</span>
+                <strong id="newUsage">0 kWh</strong>
+                <small>per month</small>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<script>
+function simulateSaving() {
+
+    const usage = Number(document.getElementById("currentUsage").value) || 0;
+    const reduction = Number(document.getElementById("reduction").value) || 0;
+
+    const tariff = 8;
+
+    const energySaved = usage * reduction / 100;
+    const moneySaved = energySaved * tariff;
+    const newUsage = usage - energySaved;
+
+    document.getElementById("energySaved").textContent =
+        energySaved.toFixed(1) + " kWh";
+
+    document.getElementById("moneySaved").textContent =
+        "₹" + moneySaved.toFixed(0);
+
+    document.getElementById("newUsage").textContent =
+        newUsage.toFixed(1) + " kWh";
+}
+</script>
+
+</body>
+</html>

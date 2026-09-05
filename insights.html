@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WattWise - Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+    </script>
+</head>
+
+<body class="insights-page">
+
+<header class="navbar">
+    <div class="logo">⚡ WattWise</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="simulator.html">Simulator</a>
+        <a href="insights.html">Insights</a>
+    </nav>
+</header>
+
+<main class="insights-container">
+
+    <section class="page-heading">
+        <span class="eyebrow">💡 WATTWISE INSIGHTS</span>
+        <h1>Smart Energy Insights</h1>
+        <p>
+            Simple tips to reduce electricity consumption,
+            lower your bill and use energy efficiently.
+        </p>
+    </section>
+
+    <section class="insights-grid">
+
+        <article class="insight-card">
+            <div class="insight-icon">❄️</div>
+            <h2>Use AC Efficiently</h2>
+            <p>
+                Set your air conditioner around 24–26°C and keep
+                doors and windows closed while it is running.
+            </p>
+        </article>
+
+        <article class="insight-card">
+            <div class="insight-icon">💡</div>
+            <h2>Switch Off Lights</h2>
+            <p>
+                Turn off lights when leaving a room and prefer
+                energy-efficient LED bulbs.
+            </p>
+        </article>
+
+        <article class="insight-card">
+            <div class="insight-icon">🔌</div>
+            <h2>Reduce Standby Power</h2>
+            <p>
+                Unplug chargers and appliances when they are not
+                being used to avoid unnecessary electricity usage.
+            </p>
+        </article>
+
+        <article class="insight-card">
+            <div class="insight-icon">🧊</div>
+            <h2>Maintain Your Refrigerator</h2>
+            <p>
+                Avoid keeping the refrigerator door open for long
+                periods and maintain proper temperature settings.
+            </p>
+        </article>
+
+        <article class="insight-card">
+            <div class="insight-icon">🌀</div>
+            <h2>Use Fans Wisely</h2>
+            <p>
+                Switch off fans when leaving the room and clean
+                them regularly for better performance.
+            </p>
+        </article>
+
+        <article class="insight-card">
+            <div class="insight-icon">📊</div>
+            <h2>Monitor Your Usage</h2>
+            <p>
+                Use WattWise Analyzer regularly to understand
+                which appliances consume the most energy.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="insight-summary">
+        <h2>🌱 Small Changes, Big Savings</h2>
+        <p>
+            Reducing unnecessary electricity usage can lower your
+            monthly electricity bill and help conserve energy.
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>
